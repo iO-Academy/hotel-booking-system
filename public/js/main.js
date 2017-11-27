@@ -1,4 +1,4 @@
-// Smooth scroll from search area to rooms types area
+// Smooth scroll from search area to room types area
 $(document).ready(function () {
     $("#scroll_action").on('click', function (event) {
         if (this.hash !== "") {
@@ -49,7 +49,7 @@ function fillRoomTable(HBTemplate) {
 }
 
 /**
- * get the handlebars template and use this to display the rooms types
+ * get the handlebars template and use this to display the room types
  */
 function updateRoomTable() {
     getTemplateAjax('js/templates/room_types.hbs').then(function (HBTemplate) {
