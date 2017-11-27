@@ -65,12 +65,10 @@ function change_img(section_item) {
      */
     function selected_img() {
         clearTimeout(timer)
-        if (each_img[img_number]) {
-            each_img[img_number].setAttribute("id", "active")
-        } else {
+        if (!each_img[img_number]) {
             img_number = 0
-            each_img[img_number].setAttribute("id", "active")
         }
+        each_img[img_number].setAttribute("id", "active")
 
         img_number++
         $(each_img[img_number]).removeAttr("id")
