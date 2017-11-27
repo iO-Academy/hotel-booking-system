@@ -1,38 +1,86 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Slim 3</title>
-        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-        <style>
-            body {
-                margin: 50px 0 0 0;
-                padding: 0;
-                width: 100%;
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                text-align: center;
-                color: #aaa;
-                font-size: 18px;
-            }
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="fonts/Roboto-Light.ttf">
+    <link rel="stylesheet" href="fonts/Roboto-Regular.ttf">
+    <link rel="stylesheet" href="fonts/Roboto-Black.ttf">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Home | Your place</title>
+</head>
+<body>
+    <div class="main">
+        <div class="logo">
+            <a href="#">
+                <img src="./img/logo_4.png" alt="Awesome Badger logo">
+            </a>
+            <h1>Awesome badger bookings</h1>
+        </div>
+        <div class="date_range_picker">
+            <form action="#">
+                <div class="form_content">
+                    <input type="text" id="from" name="from" placeholder="From...">
+                    <input type="text" id="to" name="to" placeholder="To...">
+                    <input type="submit" class="date_submit">
+                </div>
 
-            h1 {
-                color: #719e40;
-                letter-spacing: -3px;
-                font-family: 'Lato', sans-serif;
-                font-size: 100px;
-                font-weight: 200;
-                margin-bottom: 0;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Slim</h1>
-        <div>a microframework for PHP</div>
-
-        <?php if (isset($name)) : ?>
-            <h2>Hello <?= htmlspecialchars($name); ?>!</h2>
-        <?php else: ?>
-            <p>Try <a href="http://www.slimframework.com">SlimFramework</a></p>
-        <?php endif; ?>
-    </body>
+            </form>
+        </div>
+        <div class="scroll">
+            <p>Checkout</p>
+            <div class="scroll_arrow">
+                <a href="#rooms" id="scroll_action"><img src="./img/bottom.png" alt="scroll arrow"></a>
+            </div>
+        </div>
+    </div>
+    <div class="rooms_types" id="rooms">
+        <div class="single_room room_card">
+            <div class="room_img">
+                <img src="./img/rooms/single_bed.jpg" alt="Single room photo">
+            </div>
+            <div class="room_details">
+                <h3>Single Room</h3>
+                <h2>£ <span id="single_price">57</span></h2>
+                <h3>
+                    <img src="img/person.png" alt="person" class="person">
+                </h3>
+                <p>Minimum stay: <span id="single_min_stay">3</span> night</p>
+            </div>
+        </div>
+        <div class="single_room room_card">
+            <div class="room_img">
+                <img src="./img/rooms/double_room.jpg" alt="Double room photo">
+            </div>
+            <div class="room_details">
+                <h3>Double Room</h3>
+                <h2>£ <span id="double_price">57</span></h2>
+                <h3>
+                    <img src="img/person.png" alt="person" class="person">
+                    <img src="img/person.png" alt="person" class="person">
+                    <img src="img/baby.png" alt="baby" class="person">
+                </h3>
+                <p>Minimum stay: <span id="double_min_stay">3</span> night</p>
+            </div>
+        </div>
+        <div class="single_room room_card">
+            <div class="room_img">
+                <img src="./img/rooms/vip_bed.jpg" alt="Single room photo">
+            </div>
+            <div class="room_details">
+                <h3>VIP Room</h3>
+                <h2>£ <span id="lux_price">5700</span></h2>
+                <h3><img src="img/person.png" alt="person" class="person"> x 10</h3>
+                <p>Minimum stay: <span id="lux_stay">3</span> night</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/datePicker.js"></script>
+<script src="js/main.js" defer></script>
 </html>
