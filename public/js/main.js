@@ -69,11 +69,18 @@ function carousel() {
         change_img(section_item)
     })
 }
+
+/**
+ * changing images inside the carousel
+ */
 function change_img(section_item) {
     var each_img = section_item.querySelectorAll('img')
     var img_number = 0
     var timer = null
 
+    /**
+     * selecting images algorithm
+     */
     function selected_img() {
         clearTimeout(timer)
         if (each_img[img_number]) {
