@@ -8,6 +8,10 @@ body {
     font-size: 14px;
     font-size: 1.4rem;
     font-family: 'Roboto', sans-serif;
+    background-color: #716769;
+}
+#active {
+    opacity: 1;
 }
 .main {
     position: relative;
@@ -239,7 +243,6 @@ body {
 
 .rooms_types {
     padding: 70px 10%;
-    background-color: #716769;
 }
 .room_card {
     margin: 40px 0;
@@ -257,6 +260,7 @@ body {
 }
 .room_img {
     display: inline-block;
+    position: relative;
     float: left;
     width: 70%;
     height: 400px;
@@ -264,6 +268,9 @@ body {
     overflow: hidden;
 }
 .room_img img {
+    opacity: 0;
+    transition: .7s;
+    position: absolute;
     width: 100%;
 }
 .room_details {
