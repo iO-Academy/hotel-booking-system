@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.37)
 # Database: hotelRoomBooking
-# Generation Time: 2017-11-27 10:01:30 +0000
+# Generation Time: 2017-11-27 11:58:43 +0000
 # ************************************************************
 
 
@@ -18,6 +18,22 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table roomImages
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `roomImages`;
+
+CREATE TABLE `roomImages` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `location` varchar(40) NOT NULL DEFAULT '',
+  `roomType` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `roomTypeFK` (`roomType`),
+  CONSTRAINT `roomTypeFK` FOREIGN KEY (`roomType`) REFERENCES `roomTypes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 
 # Dump of table roomTypes
