@@ -6,6 +6,33 @@ GET
 No request data
 return json object of all 3 types of rooms 
 
+
+{<br>
+  "data": [<br>
+    {<br>
+      "img_name": "single_bed",<br>
+      "room_type": "Standard room",<br>
+      "price": "57",<br>
+      "nights_ammount": "2"<br>
+    },<br>
+    {<br>
+      "img_name": "double_room",<br>
+      "room_type": "Double room",<br>
+      "price": "77",<br>
+      "nights_ammount": "3"<br>
+    },<br>
+    {<br>
+      "img_name": "vip_bed",<br>
+      "room_type": "VIP room",<br>
+      "price": "2777",<br>
+      "nights_ammount": "10"<br>
+    }<br>
+  ],<br>
+  "success": [true]<br>
+}<br>
+<br>
+
+here is a copy and paste version without line breaks
 {
   "data": [
     {
