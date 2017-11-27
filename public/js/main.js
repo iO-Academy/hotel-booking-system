@@ -41,8 +41,6 @@ function updateRoomTable() {
     })
 }
 
-updateRoomTable()
-
 /**
  * carousels of images for each room type
  */
@@ -80,3 +78,5 @@ function change_img(section_item) {
     }
     selected_img()
 }
+
+updateRoomTable()
