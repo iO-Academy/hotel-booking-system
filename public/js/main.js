@@ -1,5 +1,4 @@
-// Smooth scroll
-
+// Smooth scroll from search area to rooms types area
 $(document).ready(function () {
     $("#scroll_action").on('click', function (event) {
         if (this.hash !== "") {
@@ -15,8 +14,9 @@ $(document).ready(function () {
     })
 })
 
-//Rooms bundle
-
+/**
+ * implement Handlebars into our layout
+ */
 function fillRoomTable(HBTemplate) {
     var template = Handlebars.compile(HBTemplate)
 
@@ -59,8 +59,9 @@ function updateRoomTable() {
 
 updateRoomTable()
 
-// Carousel
-
+/**
+ * carousels of images for each room type
+ */
 function carousel() {
     var img_section = document.querySelectorAll(".room_img")
 
