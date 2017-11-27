@@ -105,7 +105,6 @@ body {
 }
 
 /*Calendar*/
-
 .ui-datepicker {
     display: none;
     width: 300px;
@@ -291,7 +290,6 @@ body {
 }
 
 /*Rooms types*/
-
 .rooms_types {
     padding: 70px 10%;
 }
