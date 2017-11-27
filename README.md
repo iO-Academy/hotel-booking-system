@@ -10,22 +10,31 @@ return json object of all 3 types of rooms
 {<br>
   "data": [<br>
     {<br>
-      "img_name": "single_bed",<br>
-      "room_type": "Standard room",<br>
-      "price": "57",<br>
-      "nights_ammount": "2"<br>
+      "imgName": "single_bed",<br>
+      "name": "Standard room",<br>
+      "pricePerNight": "57",<br>
+      "minStay": "2",<br>
+      "numberInHotel": "6",<br>
+      "numberOfAdults": "2",<br>
+      "hasCot": "0"<br>
     },<br>
     {<br>
-      "img_name": "double_room",<br>
-      "room_type": "Double room",<br>
-      "price": "77",<br>
-      "nights_ammount": "3"<br>
+      "imgName": "double_room",<br>
+      "name": "Double room",<br>
+      "pricePerNight": "77",<br>
+      "minStay": "3"<br>
+      "numberInHotel": "2",<br>
+      "numberOfAdults": "4",<br>
+      "hasCot": "1"<br>
     },<br>
     {<br>
-      "img_name": "vip_bed",<br>
-      "room_type": "VIP room",<br>
-      "price": "2777",<br>
-      "nights_ammount": "10"<br>
+      "imgName": "vip_bed",<br>
+      "name": "VIP room",<br>
+      "pricePerNight": "2777",<br>
+      "minStay": "10"<br>
+      "numberInHotel": "2",<br>
+      "numberOfAdults": "10",<br>
+      "hasCot": "0"<br>
     }<br>
   ],<br>
   "success": [true]<br>
@@ -36,22 +45,31 @@ here is a copy and paste version without line breaks
 {
   "data": [
     {
-      "img_name": "single_bed",
-      "room_type": "Standard room",
-      "price": "57",
-      "nights_ammount": "2"
+      "imgName": "single_bed",
+      "name": "Standard room",
+      "pricePerNight": "57",
+      "minStay": "2"
+      "numberInHotel": "6",
+      "numberOfAdults": "2",
+      "hasCot": "0"
     },
     {
-      "img_name": "double_room",
-      "room_type": "Double room",
-      "price": "77",
-      "nights_ammount": "3"
+      "imgName": "double_room",
+      "name": "Double room",
+      "pricePerNight": "77",
+      "minStay": "3"
+      "numberInHotel": "2",
+      "numberOfAdults": "4",
+      "hasCot": "1"
     },
     {
-      "img_name": "vip_bed",
-      "room_type": "VIP room",
-      "price": "2777",
-      "nights_ammount": "10"
+      "imgName": "vip_bed",
+      "name": "VIP room",
+      "pricePerNight": "2777",
+      "minStay": "10"
+      "numberInHotel": "2",
+      "numberOfAdults": "10",
+      "hasCot": "0"
     }
   ],
   "success": [true]
