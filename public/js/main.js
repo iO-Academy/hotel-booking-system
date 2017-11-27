@@ -1,19 +1,3 @@
-// Smooth scroll from search area to room types area
-$(document).ready(function () {
-    $("#scroll_action").on('click', function (event) {
-        if (this.hash !== "") {
-            event.preventDefault()
-            var hash = this.hash
-
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 800, function () {
-                window.location.hash = hash
-            })
-        }
-    })
-})
-
 /**
  * implement Handlebars into our layout
  */
