@@ -26,6 +26,11 @@ class RoomTypes
         $roomImages = $this->getRoomImages();
 
         $roomDataToReturn = [];
+        $roomDataToReturn[$data] = [];
+
+
+
+        $roomDataToReturn["success"] = true;
     }
 }
 
