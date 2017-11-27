@@ -10,7 +10,7 @@ return json object of all 3 types of rooms
 {<br>
   "data": [<br>
     {<br>
-      "imgName": "single_bed",<br>
+      "imgNames": ["single_bed"],<br>
       "name": "Standard room",<br>
       "pricePerNight": "57",<br>
       "minStay": "2",<br>
@@ -19,7 +19,7 @@ return json object of all 3 types of rooms
       "hasCot": "0"<br>
     },<br>
     {<br>
-      "imgName": "double_room",<br>
+      "imgNames": ["double_room"],<br>
       "name": "Double room",<br>
       "pricePerNight": "77",<br>
       "minStay": "3"<br>
@@ -28,7 +28,7 @@ return json object of all 3 types of rooms
       "hasCot": "1"<br>
     },<br>
     {<br>
-      "imgName": "vip_bed",<br>
+      "imgNames": ["vip_bed"],<br>
       "name": "VIP room",<br>
       "pricePerNight": "2777",<br>
       "minStay": "10"<br>
@@ -45,7 +45,7 @@ here is a copy and paste version without line breaks
 {
   "data": [
     {
-      "imgName": "single_bed",
+      "imgNames": ["single_bed"],
       "name": "Standard room",
       "pricePerNight": "57",
       "minStay": "2"
@@ -54,7 +54,7 @@ here is a copy and paste version without line breaks
       "hasCot": "0"
     },
     {
-      "imgName": "double_room",
+      "imgNames": ["double_room"],
       "name": "Double room",
       "pricePerNight": "77",
       "minStay": "3"
@@ -63,7 +63,7 @@ here is a copy and paste version without line breaks
       "hasCot": "1"
     },
     {
-      "imgName": "vip_bed",
+      "imgNames": ["vip_bed"],
       "name": "VIP room",
       "pricePerNight": "2777",
       "minStay": "10"
