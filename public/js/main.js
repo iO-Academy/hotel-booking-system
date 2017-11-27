@@ -40,7 +40,7 @@ function fillRoomTable(HBTemplate) {
                     room_list.innerHTML += html
                 })
             } else {
-                room_list.innerHTML += "hello"
+                room_list.innerHTML += "Can't load the data from the server"
             }
         })
         .then(function () {
