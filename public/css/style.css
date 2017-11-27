@@ -1,18 +1,22 @@
 * {
     box-sizing: border-box;
 }
+
 html {
     font-size: 62.5%;
 }
+
 body {
     font-size: 14px;
     font-size: 1.4rem;
     font-family: 'Roboto', sans-serif;
     background-color: #716769;
 }
+
 #active {
     opacity: 1;
 }
+
 .main {
     position: relative;
     height: 100vh;
@@ -33,17 +37,19 @@ body {
     width: 80px;
     margin-left: 124px;
     opacity: .9;
-    box-shadow: 0 3px 7px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.22);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.22);
     border-radius: 50%;
 }
+
 .logo h1 {
     color: #ffffff;
     text-transform: uppercase;
     text-align: center;
     font-size: 2rem;
     letter-spacing: 2px;
-    text-shadow: 0 3px 7px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.22);
+    text-shadow: 0 3px 7px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.22);
 }
+
 .date_range_picker {
     width: 100%;
     position: absolute;
@@ -51,12 +57,13 @@ body {
     margin-top: -50px;
     font-family: 'Roboto', sans-serif;
 }
+
 .form_content {
     width: 900px;
     padding: 25px 20px;
     margin: auto;
-    background-color: rgba(255,255,255,.9);
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     display: flex;
     justify-content: center;
 }
@@ -72,23 +79,27 @@ body {
     font-weight: lighter;
     color: #716769;
 }
+
 .date_range_picker input::placeholder {
     color: #716769;
 }
+
 .date_range_picker .date_submit {
     width: 190px;
     background: #716769;
     color: #ffffff;
     line-height: 50px;
     border-radius: 0;
-    box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
     transition: .3s;
     font-style: normal;
 }
+
 .date_range_picker .date_submit:active {
     transform: scale(0.97);
-    box-shadow: 0 3px 7px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.22);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.22);
 }
+
 .date_range_picker .date_submit:hover {
     background-color: #584e50;
 }
@@ -99,12 +110,14 @@ body {
     display: none;
     width: 300px;
     padding-bottom: 20px;
-    background-color: rgba(255,255,255, 0.95);
+    background-color: rgba(255, 255, 255, 0.95);
 }
+
 .ui-datepicker-header {
     background-color: #716769;
     height: 60px;
 }
+
 .ui-datepicker-prev,
 .ui-datepicker-next {
     display: inline-block;
@@ -112,20 +125,25 @@ body {
     padding: 20px;
     transition: .3s;
 }
+
 .ui-datepicker-prev:hover,
 .ui-datepicker-next:hover {
     background-color: #a79799;
 }
+
 .ui-datepicker-title {
     display: inline-block;
     width: 200px;
 }
+
 .ui-datepicker-prev {
     float: left;
 }
+
 .ui-datepicker-next {
     float: right;
 }
+
 .ui-datepicker-month,
 .ui-datepicker-year {
     width: 120px;
@@ -136,38 +154,44 @@ body {
     color: #ffffff;
     outline: 0;
     border-radius: 0;
-    box-shadow: 0 3px 7px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.22);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.22);
 }
+
 .ui-datepicker-year {
     width: 60px;
 }
+
 .ui-icon-circle-triangle-w,
 .ui-icon-circle-triangle-e {
     cursor: default;
     display: inline-block;
     width: 10px;
     height: 20px;
-    color: rgba(0,0,0,0);
+    color: rgba(0, 0, 0, 0);
     background-image: url("../img/back.png");
     background-size: 10px;
     background-repeat: no-repeat;
 }
+
 .ui-state-disabled .ui-icon-circle-triangle-w,
 .ui-state-disabled:hover {
     background-image: none;
     background-color: #716769;
 }
+
 .ui-icon-circle-triangle-e {
     float: right;
     background-image: url("../img/next.png");
 }
-    /*Dates area*/
+
+/*Dates area*/
 .ui-datepicker-calendar {
     width: 280px;
     margin: 0 10px;
     border-collapse: collapse;
     border-spacing: 0;
 }
+
 .ui-datepicker-calendar th,
 .ui-datepicker-calendar td {
     min-width: 40px;
@@ -179,26 +203,32 @@ body {
     color: #716769;
     transition: .2s;
 }
+
 .ui-datepicker-calendar td {
     background-color: #ffffff;
     border: none;
 }
+
 .ui-datepicker-calendar td:hover {
     background-color: #716769;
 }
+
 .ui-datepicker-calendar td:hover a {
     color: #ffffff;
 }
+
 .ui-datepicker-calendar a {
     text-decoration: none;
     color: #716769;
 }
+
 .ui-datepicker-calendar .ui-state-disabled,
 .ui-datepicker-calendar .ui-state-disabled:hover {
     background: #f8f8f8;
     color: #d5d5d5;
     cursor: default;
 }
+
 .ui-datepicker-calendar .ui-datepicker-other-month,
 .ui-datepicker-calendar .ui-datepicker-other-month:hover {
     background: #ffffff;
@@ -211,6 +241,7 @@ body {
     bottom: 40px;
     left: 50%;
 }
+
 .scroll p {
     width: 60px;
     text-align: center;
@@ -218,9 +249,11 @@ body {
     font-style: italic;
     font-weight: lighter;
 }
+
 .scroll_arrow {
     width: 40px;
 }
+
 .scroll_arrow img {
     width: 40px;
     margin-left: 10px;
@@ -228,15 +261,33 @@ body {
 }
 
 @keyframes bounce {
-    0% {transform: scale(1);}
-    12.5% {transform: scale(.97);}
-    25% {transform: scale(.95);}
-    37.5% {transform: scale(.92);}
-    50% {transform: scale(.9);}
-    62.5% {transform: scale(.92);}
-    75% {transform: scale(.95);}
-    87.5% {transform: scale(.97);}
-    100% {transform: scale(1);}
+    0% {
+        transform: scale(1);
+    }
+    12.5% {
+        transform: scale(.97);
+    }
+    25% {
+        transform: scale(.95);
+    }
+    37.5% {
+        transform: scale(.92);
+    }
+    50% {
+        transform: scale(.9);
+    }
+    62.5% {
+        transform: scale(.92);
+    }
+    75% {
+        transform: scale(.95);
+    }
+    87.5% {
+        transform: scale(.97);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /*Rooms types*/
@@ -244,20 +295,25 @@ body {
 .rooms_types {
     padding: 70px 10%;
 }
+
 .room_card {
     margin: 40px 0;
 }
-.room_card:nth-child(even) .room_details{
+
+.room_card:nth-child(even) .room_details {
     float: left;
 }
-.room_card:nth-child(even) .room_img{
+
+.room_card:nth-child(even) .room_img {
     float: right;
 }
+
 .single_room {
     width: 100%;
     height: 400px;
-    box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
 }
+
 .room_img {
     display: inline-block;
     position: relative;
@@ -267,12 +323,14 @@ body {
     background-color: #dddddd;
     overflow: hidden;
 }
+
 .room_img img {
     opacity: 0;
     transition: .7s;
     position: absolute;
     width: 100%;
 }
+
 .room_details {
     display: inline-block;
     background-color: #ffffff;
@@ -287,9 +345,11 @@ body {
     color: #716769;
     font-size: 3rem;
 }
+
 .person {
     width: 20px;
 }
+
 .room_details h2 {
     font-size: 3rem;
     font-weight: lighter;
