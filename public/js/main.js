@@ -49,7 +49,7 @@ function fillRoomTable(HBTemplate) {
 }
 
 /**
- * get the handlebars template and use this to display the users
+ * get the handlebars template and use this to display the rooms types
  */
 function updateRoomTable() {
     getTemplateAjax('js/templates/room_types.hbs').then(function (HBTemplate) {
