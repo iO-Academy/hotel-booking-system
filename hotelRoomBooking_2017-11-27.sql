@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.37)
 # Database: hotelRoomBooking
-# Generation Time: 2017-11-27 11:58:43 +0000
+# Generation Time: 2017-11-27 15:06:14 +0000
 # ************************************************************
 
 
@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `roomImages`;
 
 CREATE TABLE `roomImages` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `location` varchar(40) NOT NULL DEFAULT '',
+  `imgName` varchar(40) NOT NULL DEFAULT '',
   `roomType` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `roomTypeFK` (`roomType`),
@@ -50,7 +50,7 @@ CREATE TABLE `roomTypes` (
   `minStay` int(11) NOT NULL,
   `numberInHotel` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `roomTypes` WRITE;
 /*!40000 ALTER TABLE `roomTypes` DISABLE KEYS */;
