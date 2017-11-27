@@ -10,7 +10,7 @@ return json object of all 3 types of rooms
 {<br>
   "data": [<br>
     {<br>
-      "imgNames": ["single_bed"],<br>
+      "imgNames": ["single_bed", "single_desk"],<br>
       "name": "Standard room",<br>
       "pricePerNight": "57",<br>
       "minStay": "2",<br>
@@ -19,19 +19,19 @@ return json object of all 3 types of rooms
       "hasCot": "0"<br>
     },<br>
     {<br>
-      "imgNames": ["double_room"],<br>
+      "imgNames": ["double_room", ect, ect],<br>
       "name": "Double room",<br>
       "pricePerNight": "77",<br>
-      "minStay": "3"<br>
+      "minStay": "3"<br>,
       "numberInHotel": "2",<br>
       "numberOfAdults": "4",<br>
       "hasCot": "1"<br>
     },<br>
     {<br>
-      "imgNames": ["vip_bed"],<br>
+      "imgNames": ["vip_bed", "vip_kitchen", ect],<br>
       "name": "VIP room",<br>
       "pricePerNight": "2777",<br>
-      "minStay": "10"<br>
+      "minStay": "10"<br>,
       "numberInHotel": "2",<br>
       "numberOfAdults": "10",<br>
       "hasCot": "0"<br>
