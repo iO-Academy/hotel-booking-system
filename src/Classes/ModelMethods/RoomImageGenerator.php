@@ -24,7 +24,7 @@ class RoomImageGenerator
             return $query->fetchAll();
         }
         catch(\Exception $exception) {
-            $this->logger->info("Help me");
+            $this->logger->info("Room images are not available");
         }
     }
 }

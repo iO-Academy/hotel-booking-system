@@ -25,3 +25,10 @@ $container['db'] = function ($c) {
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
 };
+
+$container['roomTypeController'] = function ($c) {
+    $roomTypeGenerator = new \App\Classes\ModelMethods\RoomTypeGenerator($c['db'], $c['logger']);
+    $roomImageGenerator = new \App\Classes\ModelMethods\RoomImageGenerator($c['db'], $c['logger']);
+    $roomTypeController = new \App\Classes\Controllers\RoomTypeController($roomTypeGenerator, $roomImageGenerator, $c['logger']);
+    return $roomTypeController;
+};
