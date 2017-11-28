@@ -20,8 +20,8 @@ $(document).ready(function () {
 function fillRoomTable(HBTemplate) {
     var template = Handlebars.compile(HBTemplate)
 
-    Handlebars.registerHelper('if', function(v1, v2, options) {
-        if(v1 === v2) {
+    Handlebars.registerHelper('if', function (v1, v2, options) {
+        if (v1 === v2) {
             return options.fn(this)
         }
         return options.inverse(this)
@@ -63,8 +63,8 @@ function updateRoomTable() {
 function fillResultsTable(HBTemplate) {
     var template = Handlebars.compile(HBTemplate)
 
-    Handlebars.registerHelper('if', function(v1, v2, options) {
-        if(v1 === v2) {
+    Handlebars.registerHelper('if', function (v1, v2, options) {
+        if (v1 === v2) {
             return options.fn(this)
         }
         return options.inverse(this)
@@ -134,6 +134,7 @@ function change_img(section_item) {
         $(each_img[img_number]).removeAttr("id")
         timer = setTimeout(selected_img, 3000)
     }
+
     selected_img()
 }
 
@@ -146,33 +147,42 @@ updateResultsTable()
  */
 function displayMoreInfo() {
     var moreInfo = document.querySelectorAll(".more_info")
-    for(i=0; i < moreInfo.length; i++) {
-        moreInfo[i].setAttribute("id", i+1)
+    for (i = 0; i < moreInfo.length; i++) {
+        moreInfo[i].setAttribute("id", i + 1)
     }
 
-        moreInfo.forEach(function (item) {
-            item.addEventListener("click", function () {
-                var descriptionBox = this.parentNode.parentNode.childNodes[1]
-                var close = descriptionBox.childNodes[1].childNodes[0]
+    moreInfo.forEach(function (item) {
+        item.addEventListener("click", function () {
+            var descriptionBox = this.parentNode.parentNode.childNodes[1]
+            var close = descriptionBox.childNodes[1].childNodes[0]
 
-                if (this.getAttribute("id") % 2) {
-                    $(descriptionBox).css("right", "30%")
+            if (this.getAttribute("id") % 2) {
+                $(descriptionBox).css("right", "30%")
+            } else {
+                $(descriptionBox).css("right", "40%")
+            }
+
+            close.addEventListener("click", function () {
+
+                if (item.getAttribute("id") % 2) {
+                    $(descriptionBox).css("right", "0px")
                 } else {
-                    $(descriptionBox).css("right", "40%")
+                    $(descriptionBox).css("right", "70%")
                 }
-
-                close.addEventListener("click", function () {
-
-                    if (item.getAttribute("id") % 2) {
-                        $(descriptionBox).css("right", "0px")
-                    } else {
-                        $(descriptionBox).css("right", "70%")
-                    }
-                })
             })
         })
-
-
+    })
 }
 
 
+// Magic block
+
+document.querySelector(".date_submit").addEventListener("click", function (e) {
+    e.preventDefault()
+    document.querySelector(".date_range_picker").style.top = "25%"
+    document.querySelector(".rooms_results").style.height = "auto"
+    document.querySelector(".rooms_results").style.opacity = "1"
+    document.querySelector(".rooms_results").style.marginTop = "0"
+    document.querySelector(".rooms_types").style.display = "none"
+    document.querySelector(".scroll").style.display = "none"
+})
