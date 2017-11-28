@@ -18,9 +18,10 @@ class RoomTypeController
         $this->logger = $logger;
     }
 
-    public function getRoomTypes()
+    public function getRoomTypeInformation()
     {
-
+        $roomTypes = $this->roomTypeGenerator->getRoomTypes();
+        
 
 //        return '{
 //            "data": [
