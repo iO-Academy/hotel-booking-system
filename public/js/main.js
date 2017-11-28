@@ -1,3 +1,19 @@
+// Smooth scroll from search area to room types area
+$(document).ready(function () {
+    $("#scroll_action").on('click', function (event) {
+        if (this.hash !== "") {
+            event.preventDefault()
+            var hash = this.hash
+
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 800, function () {
+                window.location.hash = hash
+            })
+        }
+    })
+})
+
 /**
  * implement Handlebars into our layout
  */
@@ -18,7 +34,7 @@ function fillRoomTable(HBTemplate) {
         .then(function (result) {
             var room_list = document.querySelector(".rooms_types")
 
-            if (result.success[0]) {
+            if (result.success) {
                 result.data.forEach(function (roomData) {
                     var html = template(roomData)
                     room_list.innerHTML += html
