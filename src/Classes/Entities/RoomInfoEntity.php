@@ -2,7 +2,7 @@
 
 namespace App\Classes\Entities;
 
-class RoomTypeEntity
+class RoomInfoEntity
 {
     public $id;
     public $name;

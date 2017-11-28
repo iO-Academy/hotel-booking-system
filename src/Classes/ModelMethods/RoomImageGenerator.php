@@ -17,10 +17,10 @@ class RoomImageGenerator
     public function getImagesForRoomType(int $id)
     {
         try {
-            $query = $this->db->prepare("SELECT `imgName` FROM `roomImages` WHERE `roomType` = :roomType;");
+            $query = $this->db->prepare("SELECT `id`, `roomType`, `imgName` FROM `roomImages` WHERE `roomType` = :roomType;");
             $query->bindParam(':roomType', $id, \PDO::PARAM_INT);
             $query->execute();
-            $query->setFetchMode(\PDO::FETCH_CLASS, "RoomImageEntity");
+            $query->setFetchMode(\PDO::FETCH_CLASS, \App\Classes\Entities\RoomImageEntity::class);
             return $query->fetchAll();
         }
         catch(\Exception $exception) {

@@ -3,7 +3,7 @@
 namespace App\Classes\ModelMethods;
 use App\Classes\Entities;
 
-class RoomTypeGenerator
+class RoomInfoGenerator
 {
     private $db;
     private $logger;
@@ -14,17 +14,17 @@ class RoomTypeGenerator
         $this->logger = $logger;
     }
 
-    public function getRoomTypes()
+    public function getRoomsInfo():array
     {
         try {
-            $query = $this->db->prepare("SELECT `id`,`name`,`pricePerNight`,`numberOfAdults`,`hasCot`,`minStay`,`description` FROM `roomTypes`;");
+            $query = $this->db->prepare("SELECT `id`,`name`,`pricePerNight`,`numberOfAdults`,`hasCot`,`minStay`,`numberInHotel`,`description` FROM `roomTypes`;");
             $query->execute();
-            $query->setFetchMode(\PDO::FETCH_CLASS, "RoomTypeEntity");
+            $query->setFetchMode(\PDO::FETCH_CLASS, \App\Classes\Entities\RoomInfoEntity::class);
             $roomDetails = $query->fetchAll();
             return $roomDetails;
         }
         catch(\Exception $exception) {
-            $this->logger->info("Room types not available");
+            $this->logger->info("Room info not available");
         }
     }
     
