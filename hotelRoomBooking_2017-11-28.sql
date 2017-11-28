@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.37)
 # Database: hotelRoomBooking
-# Generation Time: 2017-11-28 09:53:28 +0000
+# Generation Time: 2017-11-28 10:06:49 +0000
 # ************************************************************
 
 
@@ -32,8 +32,24 @@ CREATE TABLE `roomImages` (
   PRIMARY KEY (`id`),
   KEY `roomTypeFK` (`roomType`),
   CONSTRAINT `roomTypeFK` FOREIGN KEY (`roomType`) REFERENCES `roomTypes` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
+LOCK TABLES `roomImages` WRITE;
+/*!40000 ALTER TABLE `roomImages` DISABLE KEYS */;
+
+INSERT INTO `roomImages` (`id`, `imgName`, `roomType`)
+VALUES
+	(1,'family_room',2),
+	(2,'family_table',2),
+	(3,'single_bed',1),
+	(4,'single_desk',1),
+	(5,'vip_bed',3),
+	(6,'vip_hall',3),
+	(7,'vip_kitchen',3),
+	(8,'vip_office',3);
+
+/*!40000 ALTER TABLE `roomImages` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table roomTypes
