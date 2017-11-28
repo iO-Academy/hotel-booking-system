@@ -18,7 +18,7 @@ function fillRoomTable(HBTemplate) {
         .then(function (result) {
             var room_list = document.querySelector(".rooms_types")
 
-            if (result.success[0]) {
+            if (result.success) {
                 result.data.forEach(function (roomData) {
                     var html = template(roomData)
                     room_list.innerHTML += html
@@ -38,6 +38,50 @@ function fillRoomTable(HBTemplate) {
 function updateRoomTable() {
     getTemplateAjax('js/templates/room_types.hbs').then(function (HBTemplate) {
         fillRoomTable(HBTemplate)
+    })
+}
+
+/**
+ * implement Handlebars into our layout (results)
+ */
+function fillResultsTable(HBTemplate) {
+    var template = Handlebars.compile(HBTemplate)
+
+    Handlebars.registerHelper('if', function(v1, v2, options) {
+        if(v1 === v2) {
+            return options.fn(this)
+        }
+        return options.inverse(this)
+    })
+
+    fetch("/js/example2.json")
+        .then(function (result) {
+            return result.json()
+        })
+        .then(function (result) {
+            var result_list = document.querySelector(".rooms_results")
+
+            if (result.success) {
+                result.data.forEach(function (roomData) {
+                    var html = template(roomData)
+                    result_list.innerHTML += html
+                })
+            } else {
+                result_list.innerHTML += "Can't load the data from the server"
+            }
+        })
+        .then(function () {
+            carousel()
+            displayMoreInfo()
+        })
+}
+
+/**
+ * get the handlebars template and use this to display the room types
+ */
+function updateResultsTable() {
+    getTemplateAjax('js/templates/results.hbs').then(function (HBTemplate) {
+        fillResultsTable(HBTemplate)
     })
 }
 
@@ -77,35 +121,42 @@ function change_img(section_item) {
     selected_img()
 }
 
-
-// description show and hide
-var moreInfo = document.querySelectorAll(".more_info")
-
-moreInfo.forEach(function (item) {
-    item.addEventListener("click", function () {
-        var parent = this.parentNode.parentNode.childNodes[1]
-        var close = parent.childNodes[1].childNodes[0]
-        console.log(close)
-
-        if ($(parent).css("right") === ("0px")) {
-            $(parent).css("right", "30%")
-        } else {
-            $(parent).css("right", "40%")
-        }
-
-
-
-        close.addEventListener("click", function () {
-
-            console.log(window.innerWidth * 0.8 * 0.3)
-            if ($(parent).css("right") < ("" + window.innerWidth * 0.8 * 0.3) ) {
-        $(parent).css("right", "0px")
-            } else {
-                $(parent).css("right", "70%")
-            }
-        })
-    })
-})
-
 updateRoomTable()
+updateResultsTable()
+
+
+/**
+ * showing and hiding description slider
+ */
+function displayMoreInfo() {
+    var moreInfo = document.querySelectorAll(".more_info")
+    for(i=0; i < moreInfo.length; i++) {
+        moreInfo[i].setAttribute("id", i+1)
+    }
+
+        moreInfo.forEach(function (item) {
+            item.addEventListener("click", function () {
+                var descriptionBox = this.parentNode.parentNode.childNodes[1]
+                var close = descriptionBox.childNodes[1].childNodes[0]
+
+                if (this.getAttribute("id") % 2) {
+                    $(descriptionBox).css("right", "30%")
+                } else {
+                    $(descriptionBox).css("right", "40%")
+                }
+
+                close.addEventListener("click", function () {
+
+                    if (item.getAttribute("id") % 2) {
+                        $(descriptionBox).css("right", "0px")
+                    } else {
+                        $(descriptionBox).css("right", "70%")
+                    }
+                })
+            })
+        })
+
+
+}
+
 
