@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "imgNames": [{"img": "single_bed"}, {"img": "double_room"}],
+      "name": "Standard room",
+      "pricePerNight": "57",
+      "minStay": "2",
+      "numberInHotel": "6",
+      "numberOfAdults": "2",
+      "hasCot": "0",
+      "totalPriceOfStay": "100",
+      "numberOfNights": "3"
+    },
+    {
+      "imgNames": [{"img": "double_room"}, {"img": "single_bed"}],
+      "name": "Double room",
+      "pricePerNight": "77",
+      "minStay": "3",
+      "numberInHotel": "2",
+      "numberOfAdults": "4",
+      "hasCot": "1",
+      "totalPriceOfStay": "250",
+      "numberOfNights": "3"
+    },
+    {
+      "imgNames": [{"img": "vip_bed"}, {"img": "single_bed"}],
+      "name": "VIP room",
+      "pricePerNight": "277",
+      "minStay": "10",
+      "numberInHotel": "2",
+      "numberOfAdults": "10",
+      "hasCot": "0",
+      "totalPriceOfStay": "820",
+      "numberOfNights": "3"
+    }
+  ],
+  "success": "true"
+}
