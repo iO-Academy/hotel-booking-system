@@ -7,7 +7,7 @@ No request data
 return json object of all 3 types of rooms 
 
 
-{  
+{<br>
   "data": [<br>
     {<br>
       "imgNames": [{"imgName": "single_bed"}, {"imgName": "single_desk"}],<br>
