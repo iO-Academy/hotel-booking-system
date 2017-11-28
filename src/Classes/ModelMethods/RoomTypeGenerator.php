@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Classes\ModelMethods;
 
 class RoomTypeGenerator
 {
