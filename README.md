@@ -16,7 +16,8 @@ return json object of all 3 types of rooms
       "minStay": "2",<br>
       "numberInHotel": "6",<br>
       "numberOfAdults": "2",<br>
-      "hasCot": "0"<br>
+      "hasCot": "0",<br>
+      "description": "hi im ben"<br>
     },<br>
     {<br>
       "imgNames": [{"img": "double_bed"}, {"img": "double_room"}],<br>
@@ -26,6 +27,7 @@ return json object of all 3 types of rooms
       "numberInHotel": "2",<br>
       "numberOfAdults": "4",<br>
       "hasCot": "1"<br>
+      "description": "hi im ben"<br>
     },<br>
     {<br>
       "imgNames": [{"img": "vip_bed"}, {"img": "vip_office"}, {"img": "vip_kitchen"}],<br>
@@ -35,6 +37,7 @@ return json object of all 3 types of rooms
       "numberInHotel": "2",<br>
       "numberOfAdults": "10",<br>
       "hasCot": "0"<br>
+      "description": "hi im ben"<br>
     }<br>
   ],<br>
   "success": [true]<br>
