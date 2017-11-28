@@ -1,4 +1,6 @@
-// Smooth scroll from search area to room types area
+/**
+ * Smooth scroll from search area to room types area
+ */
 $(document).ready(function () {
     $("#scroll_action").on('click', function (event) {
         if (this.hash !== "") {
@@ -7,99 +9,12 @@ $(document).ready(function () {
 
             $('html, body').animate({
                 scrollTop: $(hash).offset().top
-            }, 800, function () {
+            }, 1200, function () {
                 window.location.hash = hash
             })
         }
     })
 })
-
-/**
- * implement Handlebars into our layout
- */
-function fillRoomTable(HBTemplate) {
-    var template = Handlebars.compile(HBTemplate)
-
-    Handlebars.registerHelper('if', function (v1, v2, options) {
-        if (v1 === v2) {
-            return options.fn(this)
-        }
-        return options.inverse(this)
-    })
-
-    fetch("/js/example.json")
-        .then(function (result) {
-            return result.json()
-        })
-        .then(function (result) {
-            var room_list = document.querySelector(".rooms_types")
-
-            if (result.success) {
-                result.data.forEach(function (roomData) {
-                    var html = template(roomData)
-                    room_list.innerHTML += html
-                })
-            } else {
-                room_list.innerHTML += "Can't load the data from the server"
-            }
-        })
-        .then(function () {
-            carousel()
-        })
-}
-
-/**
- * get the handlebars template and use this to display the room types
- */
-function updateRoomTable() {
-    getTemplateAjax('js/templates/room_types.hbs').then(function (HBTemplate) {
-        fillRoomTable(HBTemplate)
-    })
-}
-
-/**
- * implement Handlebars into our layout (results)
- */
-function fillResultsTable(HBTemplate) {
-    var template = Handlebars.compile(HBTemplate)
-
-    Handlebars.registerHelper('if', function (v1, v2, options) {
-        if (v1 === v2) {
-            return options.fn(this)
-        }
-        return options.inverse(this)
-    })
-
-    fetch("/js/example2.json")
-        .then(function (result) {
-            return result.json()
-        })
-        .then(function (result) {
-            var result_list = document.querySelector(".rooms_results")
-
-            if (result.success) {
-                result.data.forEach(function (roomData) {
-                    var html = template(roomData)
-                    result_list.innerHTML += html
-                })
-            } else {
-                result_list.innerHTML += "Can't load the data from the server"
-            }
-        })
-        .then(function () {
-            carousel()
-            displayMoreInfo()
-        })
-}
-
-/**
- * get the handlebars template and use this to display the room types
- */
-function updateResultsTable() {
-    getTemplateAjax('js/templates/results.hbs').then(function (HBTemplate) {
-        fillResultsTable(HBTemplate)
-    })
-}
 
 /**
  * carousels of images for each room type
@@ -134,13 +49,8 @@ function change_img(section_item) {
         $(each_img[img_number]).removeAttr("id")
         timer = setTimeout(selected_img, 3000)
     }
-
     selected_img()
 }
-
-updateRoomTable()
-updateResultsTable()
-
 
 /**
  * showing and hiding description slider
@@ -174,9 +84,9 @@ function displayMoreInfo() {
     })
 }
 
-
-// Magic block
-
+/**
+ * showing results page on submit event
+ */
 document.querySelector(".date_submit").addEventListener("click", function (e) {
     e.preventDefault()
     document.querySelector(".date_range_picker").style.top = "25%"

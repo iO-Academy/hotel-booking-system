@@ -1,3 +1,6 @@
+/**
+ * sets date format, grabs data and put data into input
+ */
 $(function () {
     var dateFormat = "dd/mm/yy",
         from = $("#from")
@@ -22,6 +25,9 @@ $(function () {
                 from.datepicker("option", "maxDate", getDate(this));
             });
 
+    /**
+     * get proper date format
+     */
     function getDate(element) {
         var date;
         try {
