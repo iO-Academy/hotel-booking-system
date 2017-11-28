@@ -7,8 +7,8 @@ class RoomTypes
         $query = $this->db->prepare("SELECT * FROM `roomTypes`;");
         $query->execute();
 
-        $rooms = $query->fetchAll();
-        return $rooms;
+        $roomDetails = $query->fetchAll();
+        return $roomDetails;
     }
 
     private function getRoomImages()
@@ -22,13 +22,11 @@ class RoomTypes
     
     protected function createRoomObject()
     {
-        $rooms = $this->getRoomTypeData();
+        $roomDetails = $this->getRoomTypeData();
         $roomImages = $this->getRoomImages();
 
         $roomDataToReturn = [];
         $roomDataToReturn[$data] = [];
-
-
 
         $roomDataToReturn["success"] = true;
     }
