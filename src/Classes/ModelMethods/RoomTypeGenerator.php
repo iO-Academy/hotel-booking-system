@@ -19,20 +19,6 @@ class RoomTypeGenerator
         $roomDetails = $query->fetchAll();
         return $roomDetails;
     }
-
-    private function getRoomImages(int $id)
-    {
-        $query = $this->db->prepare("SELECT `imgName` FROM `roomImages` WHERE `roomType` = :roomType;");
-        $query->bindParam(':roomType', $id, \PDO::PARAM_INT);
-        $query->execute();
-
-        $returnedImages = $query->fetchAll();
-        $roomImages = [];
-        foreach ($returnedImages as $returnedImage) {
-            array_push($roomImages, (object)['img' => $returnedImage['imgName']]);
-        }
-        return $roomImages;
-    }
     
     public function getRoomTypes()
     {
