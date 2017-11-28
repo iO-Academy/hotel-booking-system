@@ -95,7 +95,6 @@ body {
 }
 
 /*Room results*/
-
 .rooms_results {
     padding: 70px 10%;
     background-color: #716769;
@@ -114,8 +113,14 @@ body {
     border-bottom: 1px solid #d7c5c7;
 }
 
+.rooms_results h3 {
+    margin: 20px 0;
+}
+
+/*description  box*/
 .description {
     position: absolute;
+    z-index: 10;
     right: 0;
     top: 0;
     height: 400px;
@@ -132,7 +137,7 @@ body {
     text-align: center;
 }
 
-.description .text {
+.description .description_text {
     padding: 10px 40px;
     font-style: normal;
     text-align: justify;
