@@ -13,70 +13,8 @@
     <title>Home | Your place</title>
 </head>
 <body>
-<div class="main">
-    <div class="logo">
-        <a href="#">
-            <img src="./img/logo_4.png" alt="Awesome Badger logo">
-        </a>
-        <h1>Awesome badger bookings</h1>
-    </div>
-    <div class="date_range_picker">
-        <form action="#">
-            <div class="form_content">
-                <input type="text" id="from" name="from" placeholder="From...">
-                <input type="text" id="to" name="to" placeholder="To...">
-                <input type="submit" class="date_submit">
-            </div>
 
-        </form>
-    </div>
-    <div class="scroll">
-        <p>Checkout</p>
-        <div class="scroll_arrow">
-            <a href="#rooms" id="scroll_action"><img src="./img/bottom.png" alt="scroll arrow"></a>
-        </div>
-    </div>
-</div>
 <div class="rooms_types" id="rooms">
-    <div class="single_room room_card">
-        <div class="room_img">
-            <img src="./img/rooms/single_bed.jpg" alt="Single room photo">
-        </div>
-        <div class="room_details">
-            <h3>Single Room</h3>
-            <h2>£ <span id="single_price">57</span></h2>
-            <h3>
-                <img src="img/person.png" alt="person" class="person">
-            </h3>
-            <p>Minimum stay: <span id="single_min_stay">3</span> night</p>
-        </div>
-    </div>
-    <div class="single_room room_card">
-        <div class="room_img">
-            <img src="./img/rooms/double_room.jpg" alt="Double room photo">
-        </div>
-        <div class="room_details">
-            <h3>Double Room</h3>
-            <h2>£ <span id="double_price">57</span></h2>
-            <h3>
-                <img src="img/person.png" alt="person" class="person">
-                <img src="img/person.png" alt="person" class="person">
-                <img src="img/baby.png" alt="baby" class="person">
-            </h3>
-            <p>Minimum stay: <span id="double_min_stay">3</span> night</p>
-        </div>
-    </div>
-    <div class="single_room room_card">
-        <div class="room_img">
-            <img src="./img/rooms/vip_bed.jpg" alt="Single room photo">
-        </div>
-        <div class="room_details">
-            <h3>VIP Room</h3>
-            <h2>£ <span id="lux_price">5700</span></h2>
-            <h3><img src="img/person.png" alt="person" class="person"> x 10</h3>
-            <p>Minimum stay: <span id="lux_stay">3</span> night</p>
-        </div>
-    </div>
 </div>
 
 <!--results page-->
@@ -143,10 +81,12 @@
             <p class="more_info">More about the room</p>
         </div>
     </div>
-</div>
+    
 </body>
 <script src="js/jquery-1.12.4.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/datePicker.js"></script>
+<script src="js/handlebars-v4.0.11.js"></script>
+<script src="js/ajax_request.js"></script>
 <script src="js/main.js" defer></script>
 </html>
