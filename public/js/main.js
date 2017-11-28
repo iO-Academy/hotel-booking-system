@@ -11,14 +11,14 @@ function fillRoomTable(HBTemplate) {
         return options.inverse(this)
     })
 
-    fetch("/js/example.json")
+    fetch("/rooms")
         .then(function (result) {
             return result.json()
         })
         .then(function (result) {
             var room_list = document.querySelector(".rooms_types")
 
-            if (result.success[0]) {
+            if (result.success) {
                 result.data.forEach(function (roomData) {
                     var html = template(roomData)
                     room_list.innerHTML += html
