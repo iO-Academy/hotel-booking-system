@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.37)
 # Database: hotelRoomBooking
-# Generation Time: 2017-11-28 10:06:49 +0000
+# Generation Time: 2017-11-28 10:25:58 +0000
 # ************************************************************
 
 
@@ -65,7 +65,7 @@ CREATE TABLE `roomTypes` (
   `hasCot` tinyint(1) NOT NULL,
   `minStay` int(11) NOT NULL,
   `numberInHotel` int(11) NOT NULL,
-  `description` blob,
+  `description` blob NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
