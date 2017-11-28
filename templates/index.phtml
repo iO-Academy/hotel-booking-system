@@ -13,75 +13,32 @@
     <title>Home | Your place</title>
 </head>
 <body>
-
-<div class="rooms_types" id="rooms">
-</div>
-
-<!--results page-->
-<div class="rooms_results">
-    <div class="single_room room_card">
-        <div class="description">
-            <p><img src="./img/delete.svg">Description</p>
-            <p class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae aliquet lorem. Nulla nisi libero, molestie id hendrerit nec, mollis mattis augue. Nunc facilisis in est eu placerat. Ut cursus viverra dui et suscipit. Maecenas lacinia sed diam eu rhoncus. In a aliquet sem. Nunc lorem enim, maximus eu convallis vel, euismod ac dui.</p>
-            <p>Minimum stay: <span id="single_stay">3</span> night</p>
-        </div>
-        <div class="room_img">
-            <img src="./img/rooms/single_bed.jpg" alt="Single room photo">
-        </div>
-
-        <div class="room_details">
-            <h4>Price for 3 nights</h4>
-            <h2>£ <span id="single_price">57</span></h2>
-            <h3>
-                <h3>Single Room</h3>
-                <img src="img/person.png" alt="person" class="person">
-            </h3>
-            <p class="more_info">More about the room</p>
+<div class="main">
+    <div class="logo">
+        <a href="#">
+            <img src="./img/logo_4.png" alt="Awesome Badger logo">
+        </a>
+        <h1>Awesome badger bookings</h1>
+    </div>
+    <div class="date_range_picker">
+        <form action="#">
+            <div class="form_content">
+                <input type="text" id="from" name="from" placeholder="From...">
+                <input type="text" id="to" name="to" placeholder="To...">
+                <input type="submit" class="date_submit">
             </div>
-    </div>
-    <div class="single_room room_card">
-        <div class="description">
-            <p><img src="./img/delete.svg">Description</p>
-            <p class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae aliquet lorem. Nulla nisi libero, molestie id hendrerit nec, mollis mattis augue. Nunc facilisis in est eu placerat. Ut cursus viverra dui et suscipit. Maecenas lacinia sed diam eu rhoncus. In a aliquet sem. Nunc lorem enim, maximus eu convallis vel, euismod ac dui.</p>
-            <p>Minimum stay: <span id="single_stay">3</span> night</p>
-        </div>
-        <div class="room_img">
-            <img src="./img/rooms/double_room.jpg" alt="Double room photo">
-        </div>
-        <div class="room_details">
-            <h4>Price for 3 nights</h4>
-            <h2>£ <span id="double_price">57</span></h2>
-            <h3>
-                <h3>Double Room</h3>
-                <img src="img/person.png" alt="person" class="person">
-                <img src="img/person.png" alt="person" class="person">
-                <img src="img/baby.png" alt="baby" class="person">
-            </h3>
-            <p class="more_info">More about the room</p>
-        </div>
-    </div>
-    <div class="single_room room_card">
-        <div class="description">
-            <p><img src="./img/delete.svg">Description</p>
-            <p class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae aliquet lorem. Nulla nisi libero, molestie id hendrerit nec, mollis mattis augue. Nunc facilisis in est eu placerat. Ut cursus viverra dui et suscipit. Maecenas lacinia sed diam eu rhoncus. In a aliquet sem. Nunc lorem enim, maximus eu convallis vel, euismod ac dui.</p>
-            <p>Minimum stay: <span id="single_stay">3</span> night</p>
-        </div>
-        <div class="room_img">
-            <img src="./img/rooms/vip_bed.jpg" alt="Single room photo">
-        </div>
-        <div class="room_details">
 
-            <h4>Price for 3 nights</h4>
-            <h2>£ <span id="lux_price">5700</span></h2>
-            <h3>VIP Room</h3>
-            <h3><img src="img/person.png" alt="person" class="person"> x 10</h3>
-            <p class="more_info">More about the room</p>
+        </form>
+    </div>
+    <div class="scroll">
+        <p>Checkout</p>
+        <div class="scroll_arrow">
+            <a href="#rooms" id="scroll_action"><img src="./img/bottom.png" alt="scroll arrow"></a>
         </div>
     </div>
-    
+</div>
+<div class="rooms_types" id="rooms"></div>
+<div class="rooms_results"></div>
 </body>
 <script src="js/jquery-1.12.4.js"></script>
 <script src="js/jquery-ui.min.js"></script>
