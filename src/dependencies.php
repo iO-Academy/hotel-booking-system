@@ -27,8 +27,8 @@ $container['db'] = function ($c) {
 };
 
 $container['roomTypeController'] = function ($c) {
-    $roomTypeGenerator = new \App\Classes\ModelMethods\RoomInfoGenerator($c['db'], $c['logger']);
-    $roomImageGenerator = new \App\Classes\ModelMethods\RoomImageGenerator($c['db'], $c['logger']);
+    $roomTypeGenerator = new \App\Classes\Models\RoomInfoGenerator($c['db'], $c['logger']);
+    $roomImageGenerator = new \App\Classes\Models\RoomImageGenerator($c['db'], $c['logger']);
     $roomTypeController = new \App\Classes\Controllers\RoomTypeController($roomTypeGenerator, $roomImageGenerator, $c['logger']);
     return $roomTypeController;
 };

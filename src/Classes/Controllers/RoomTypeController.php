@@ -2,9 +2,10 @@
 
 namespace App\Classes\Controllers;
 
-use App\Classes\ModelMethods\RoomInfoGenerator;
-use App\Classes\ModelMethods\RoomImageGenerator;
+use App\Classes\Models\RoomInfoGenerator;
+use App\Classes\Models\RoomImageGenerator;
 use App\Classes\Entities\RoomInfoEntity;
+use Monolog\Logger;
 
 class RoomTypeController
 {
@@ -12,13 +13,25 @@ class RoomTypeController
     private $roomInfoGenerator;
     private $roomImageGenerator;
 
-    public function __construct(RoomInfoGenerator $roomInfoGenerator, RoomImageGenerator $roomImageGenerator, $logger)
+    /**
+     * RoomTypeController constructor.
+     *
+     * @param RoomInfoGenerator $roomInfoGenerator Gets room type info from the database
+     * @param RoomImageGenerator $roomImageGenerator Gets room images from the database
+     * @param Logger $logger The logger to use
+     */
+    public function __construct(RoomInfoGenerator $roomInfoGenerator, RoomImageGenerator $roomImageGenerator, Logger $logger)
     {
         $this->roomInfoGenerator = $roomInfoGenerator;
         $this->roomImageGenerator = $roomImageGenerator;
         $this->logger = $logger;
     }
 
+    /**
+     * Uses the generator classes to retrieve data for room types and formats it to be converted to a JSON object
+     *
+     * @return array ready to be converted to a JSON object
+     */
     public function getRoomTypes()
     {
         try {
@@ -29,7 +42,7 @@ class RoomTypeController
                 $roomType['imgNames'] = [];
                 $roomImages = $this->roomImageGenerator->getImagesForRoomType($roomInfo->id);
                 foreach ($roomImages as $roomImage) {
-                    array_push($roomType['imgNames'], (object)['imgName' => $roomImage->imgName]);
+                    array_push($roomType['imgNames'], $roomImage);
                 }
                 $roomType['name'] = $roomInfo->name;
                 $roomType['pricePerNight'] = $roomInfo->pricePerNight;
