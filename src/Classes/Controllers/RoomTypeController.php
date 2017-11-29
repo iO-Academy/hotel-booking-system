@@ -44,6 +44,7 @@ class RoomTypeController
                 foreach ($roomImages as $roomImage) {
                     array_push($roomType['imgNames'], $roomImage);
                 }
+
                 $roomType['name'] = $roomInfo->name;
                 $roomType['pricePerNight'] = $roomInfo->pricePerNight;
                 $roomType['minStay'] = $roomInfo->minStay;
