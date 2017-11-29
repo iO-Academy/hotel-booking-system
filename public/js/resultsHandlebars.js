@@ -41,5 +41,3 @@ async function updateResultsTable() {
         fillResultsTable(HBTemplate)
     })
 }
-
-updateResultsTable()

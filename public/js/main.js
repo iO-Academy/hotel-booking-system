@@ -89,37 +89,45 @@ function displayMoreInfo() {
  */
 document.querySelector(".date_submit").addEventListener("click", function (e) {
     e.preventDefault()
+    var roomResults = document.querySelector(".rooms_results")
+
+    if (roomResults.style.opacity == "1") {
+        $(".rooms_results").animate({
+            height: "0",
+            opacity: "0",
+            marginTop: "100vh"
+        }, 500, function () {
+            document.querySelectorAll('.room_type').forEach(function(a){
+                a.remove()
+            })
+            updateRoomsResult(roomResults)
+        });
+    } else {
+        updateRoomsResult(roomResults)
+    }
+})
+
+/**
+ * update result with new available rooms
+ */
+function updateRoomsResult(roomResults) {
     updateResultsTable().then(
         function () {
-            var roomResults = document.querySelector(".rooms_results")
             document.querySelector(".date_range_picker").style.top = "25%"
             document.querySelector(".rooms_types").style.display = "none"
             document.querySelector(".scroll").style.display = "none"
-
-            if (roomResults.style.opacity == "1") {
-                $(".rooms_results").animate({
-                    height: "0",
-                    opacity: "0",
-                    marginTop: "100vh"
-                }, 500, function () {
-                    showRoomCards(roomResults)
-                });
-            } else {
-                showRoomCards(roomResults)
-            }
-
+            showRoomCards(roomResults)
         }
     )
-})
+}
 
 /**
  * showing room cards after click
  */
-function showRoomCards(roomResults) {
-    setTimeout(function () {
-        roomResults.style.height = "auto"
-        roomResults.style.opacity = "1"
-        roomResults.style.marginTop = "0"
-        roomResults.style.transition = ".8s"
-    }, 500)
+async function showRoomCards(roomResults) {
+    roomResults.style.height = "auto"
+    $(roomResults).animate({
+        opacity: "1",
+        marginTop: "0vh"
+    }, 1000);
 }
