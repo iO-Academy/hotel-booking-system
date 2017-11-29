@@ -4,8 +4,8 @@
 function fillRoomTable(HBTemplate) {
     var template = Handlebars.compile(HBTemplate)
 
-    Handlebars.registerHelper('if', function (v1, v2, options) {
-        if (v1 === v2) {
+    Handlebars.registerHelper('if', function (version1, version2, options) {
+        if (version1 === version2) {
             return options.fn(this)
         }
         return options.inverse(this)

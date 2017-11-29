@@ -66,6 +66,7 @@ function displayMoreInfo() {
         item.addEventListener("click", function () {
             var descriptionBox = this.parentNode.parentNode.querySelector(".description")
             var close = descriptionBox.querySelector(".close_button")
+            
             if (this.getAttribute("id") % 2) {
                 $(descriptionBox).css("right", "30%")
             } else {
@@ -73,7 +74,6 @@ function displayMoreInfo() {
             }
 
             close.addEventListener("click", function () {
-
                 if (item.getAttribute("id") % 2) {
                     $(descriptionBox).css("right", "0px")
                 } else {
@@ -90,6 +90,18 @@ function displayMoreInfo() {
 document.querySelector(".date_submit").addEventListener("click", function (e) {
     e.preventDefault()
     var roomResults = document.querySelector(".rooms_results")
+    var re = /^\d{1,2}\/\d{1,2}\/\d{4}$/
+
+    if(!document.getElementById("from").value.match(re) || !document.getElementById("to").value.match(re)) {
+        checkForm()
+        return
+    }
+
+    if (document.getElementById("from").value === document.getElementById("to").value) {
+        document.querySelector(".error p").innerHTML = "Minimum stay is 1 nights"
+        error()
+        return
+    }
 
     if (roomResults.style.opacity == "1") {
         $(".rooms_results").animate({
@@ -97,7 +109,7 @@ document.querySelector(".date_submit").addEventListener("click", function (e) {
             opacity: "0",
             marginTop: "100vh"
         }, 500, function () {
-            document.querySelectorAll('.room_type').forEach(function(a){
+            document.querySelectorAll('.room_type').forEach(function (a) {
                 a.remove()
             })
             updateRoomsResult(roomResults)
@@ -129,5 +141,30 @@ async function showRoomCards(roomResults) {
     $(roomResults).animate({
         opacity: "1",
         marginTop: "0vh"
-    }, 1000);
+    }, 1000)
+}
+
+/**
+ * show error message with animation
+ */
+function error() {
+    var error = document.querySelector(".error")
+    error.style.display = "block";
+    setTimeout(function () {
+        $(".error").animate({
+            opacity: "0"
+        }, 1000, function () {
+            error.style.display = "none";
+            error.style.opacity = "1";
+        });
+    }, 3000)
+}
+
+/**
+ * error notification for wrong date format
+ */
+function checkForm() {
+    document.querySelector(".error p").innerHTML = "Wrong date format"
+    error()
+    return
 }
