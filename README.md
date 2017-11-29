@@ -6,71 +6,49 @@ GET
 No request data
 return json object of all 3 types of rooms 
 
+$app->get(/rooms?check-in=(date)&check-out=(date))
+
+GET
+date format DD/MM/YY
+check-in, check-out are dates from form
+send dates as get parameter using keys of check-in, check-out
+returns json object of all availiable rooms between dates
+
 {<br>
   "data": [<br>
     {<br>
-      "imgNames": [{"img": "single_bed"}, {"img": "single_desk"}],<br>
+      "imgNames": [{"imgName": "single_bed"}, {"imgName": "double_room"}],<br>
       "name": "Standard room",<br>
       "pricePerNight": "57",<br>
+      "description": "hi im ben",<br>
       "minStay": "2",<br>
-      "numberInHotel": "6",<br>
       "numberOfAdults": "2",<br>
-      "hasCot": "0"<br>
+      "hasCot": "0",<br>
+      "totalPriceOfStay": "100",<br>
+      "numberOfNights": "3"<br>
     },<br>
     {<br>
-      "imgNames": [{"img": "double_bed"}, {"img": "double_room"}],<br>
+      "imgNames": [{"imgName": "double_room"}, {"imgName": "single_bed"}],<br>
       "name": "Double room",<br>
       "pricePerNight": "77",<br>
+      "description": "hi im ben",<br>
       "minStay": "3",<br>
-      "numberInHotel": "2",<br>
       "numberOfAdults": "4",<br>
-      "hasCot": "1"<br>
+      "hasCot": "1",<br>
+      "totalPriceOfStay": "250",<br>
+      "numberOfNights": "3"<br>
     },<br>
     {<br>
-      "imgNames": [{"img": "vip_bed"}, {"img": "vip_office"}, {"img": "vip_kitchen"}],<br>
+      "imgNames": [{"imgName": "vip_bed"}, {"imgName": "single_bed"}],<br>
       "name": "VIP room",<br>
-      "pricePerNight": "2777",<br>
+      "pricePerNight": "277",<br>
+      "description": "hi im ben",<br>
       "minStay": "10",<br>
-      "numberInHotel": "2",<br>
       "numberOfAdults": "10",<br>
-      "hasCot": "0"<br>
+      "hasCot": "0",<br>
+      "totalPriceOfStay": "820",<br>
+      "numberOfNights": "3"<br>
     }<br>
   ],<br>
-  "success": [true]<br>
+  "success": "true"<br>
 }<br>
-<br>
-
-here is a copy and paste version without line breaks
-
-{
-  "data": [
-    {
-      "imgNames": [{"img": "single_bed"}, {"img": "single_desk"}],
-      "name": "Standard room",
-      "pricePerNight": "57",
-      "minStay": "2",
-      "numberInHotel": "6",
-      "numberOfAdults": "2",
-      "hasCot": "0"
-    },
-    {
-      "imgNames": [{"img": "double_bed"}, {"img": "double_room"}],
-      "name": "Double room",
-      "pricePerNight": "77",
-      "minStay": "3",
-      "numberInHotel": "2",
-      "numberOfAdults": "4",
-      "hasCot": "1"
-    },
-    {
-      "imgNames": [{"img": "vip_bed"}, {"img": "vip_office"}, {"img": "vip_kitchen"}],
-      "name": "VIP room",
-      "pricePerNight": "2777",
-      "minStay": "10",
-      "numberInHotel": "2",
-      "numberOfAdults": "10",
-      "hasCot": "0"
-    }
-  ],
-  "success": [true]
-}
