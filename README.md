@@ -12,7 +12,6 @@ return json object of all 3 types of rooms
       "name": "Standard room",<br>
       "pricePerNight": "57",<br>
       "minStay": "2",<br>
-      "numberInHotel": "6",<br>
       "numberOfAdults": "2",<br>
       "hasCot": "0",<br>
       "description": "hi im ben"<br>
@@ -22,7 +21,6 @@ return json object of all 3 types of rooms
       "name": "Double room",<br>
       "pricePerNight": "77",<br>
       "minStay": "3",<br>
-      "numberInHotel": "2",<br>
       "numberOfAdults": "4",<br>
       "hasCot": "1"<br>
       "description": "hi im ben"<br>
@@ -32,7 +30,6 @@ return json object of all 3 types of rooms
       "name": "VIP room",<br>
       "pricePerNight": "2777",<br>
       "minStay": "10",<br>
-      "numberInHotel": "2",<br>
       "numberOfAdults": "10",<br>
       "hasCot": "0"<br>
       "description": "hi im ben"<br>
