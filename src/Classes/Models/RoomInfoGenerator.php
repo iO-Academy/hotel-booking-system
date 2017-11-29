@@ -30,7 +30,7 @@ class RoomInfoGenerator
     public function getRoomsInfo(): array
     {
         try {
-            $query = $this->db->prepare("SELECT `id`,`name`,`pricePerNight`,`numberOfAdults`,`hasCot`,`minStay`,`numberInHotel`,`description` FROM `roomTypes`;");
+            $query = $this->db->prepare("SELECT `id`,`name`,`pricePerNight`,`numberOfAdults`,`hasCot`,`minStay`,`description` FROM `roomTypes`;");
             $query->execute();
             $query->setFetchMode(\PDO::FETCH_CLASS, Entities\RoomInfoEntity::class);
             $roomDetails = $query->fetchAll();
