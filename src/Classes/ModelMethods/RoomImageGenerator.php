@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Classes\ModelMethods;
+
 use App\Classes\Entities;
 
 class RoomImageGenerator
@@ -10,7 +11,7 @@ class RoomImageGenerator
 
     public function __construct(\PDO $db, $logger)
     {
-        $this->db =$db;
+        $this->db = $db;
         $this->logger = $logger;
     }
 
@@ -22,9 +23,10 @@ class RoomImageGenerator
             $query->execute();
             $query->setFetchMode(\PDO::FETCH_CLASS, \App\Classes\Entities\RoomImageEntity::class);
             return $query->fetchAll();
-        }
-        catch(\Exception $exception) {
+        } catch (\Exception $exception) {
             $this->logger->info("Room images are not available");
+            $this->logger->info($exception->getMessage());
+            throw $exception;
         }
     }
 }
