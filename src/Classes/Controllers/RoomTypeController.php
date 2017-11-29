@@ -47,7 +47,6 @@ class RoomTypeController
                 $roomType['name'] = $roomInfo->name;
                 $roomType['pricePerNight'] = $roomInfo->pricePerNight;
                 $roomType['minStay'] = $roomInfo->minStay;
-                $roomType['numberInHotel'] = $roomInfo->numberInHotel;
                 $roomType['numberOfAdults'] = $roomInfo->numberOfAdults;
                 $roomType['hasCot'] = $roomInfo->hasCot;
                 $roomType['description'] = $roomInfo->description;
