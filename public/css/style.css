@@ -378,7 +378,7 @@ body {
     overflow: hidden;
     margin-top: 100vh;
     padding: 0 10%;
-    transition: 2s;
+    /*transition: 2s;*/
 }
 
 .rooms_results h4 {

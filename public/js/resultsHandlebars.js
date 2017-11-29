@@ -36,7 +36,7 @@ function fillResultsTable(HBTemplate) {
 /**
  * get the handlebars template and use this to display the room types
  */
-function updateResultsTable() {
+async function updateResultsTable() {
     getTemplateAjax('js/templates/results.hbs').then(function (HBTemplate) {
         fillResultsTable(HBTemplate)
     })

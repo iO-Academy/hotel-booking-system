@@ -49,6 +49,7 @@ function change_img(section_item) {
         $(each_img[img_number]).removeAttr("id")
         timer = setTimeout(selected_img, 3000)
     }
+
     selected_img()
 }
 
@@ -57,15 +58,14 @@ function change_img(section_item) {
  */
 function displayMoreInfo() {
     var moreInfo = document.querySelectorAll(".more_info")
-    for (i = 0; i < moreInfo.length; i++) {
+    for (var i = 0; i < moreInfo.length; i++) {
         moreInfo[i].setAttribute("id", i + 1)
     }
 
     moreInfo.forEach(function (item) {
         item.addEventListener("click", function () {
-            var descriptionBox = this.parentNode.parentNode.childNodes[1]
-            var close = descriptionBox.childNodes[1].childNodes[0]
-
+            var descriptionBox = this.parentNode.parentNode.querySelector(".description")
+            var close = descriptionBox.querySelector(".close_button")
             if (this.getAttribute("id") % 2) {
                 $(descriptionBox).css("right", "30%")
             } else {
@@ -89,10 +89,37 @@ function displayMoreInfo() {
  */
 document.querySelector(".date_submit").addEventListener("click", function (e) {
     e.preventDefault()
-    document.querySelector(".date_range_picker").style.top = "25%"
-    document.querySelector(".rooms_results").style.height = "auto"
-    document.querySelector(".rooms_results").style.opacity = "1"
-    document.querySelector(".rooms_results").style.marginTop = "0"
-    document.querySelector(".rooms_types").style.display = "none"
-    document.querySelector(".scroll").style.display = "none"
+    updateResultsTable().then(
+        function () {
+            var roomResults = document.querySelector(".rooms_results")
+            document.querySelector(".date_range_picker").style.top = "25%"
+            document.querySelector(".rooms_types").style.display = "none"
+            document.querySelector(".scroll").style.display = "none"
+
+            if (roomResults.style.opacity == "1") {
+                $(".rooms_results").animate({
+                    height: "0",
+                    opacity: "0",
+                    marginTop: "100vh"
+                }, 500, function () {
+                    showRoomCards(roomResults)
+                });
+            } else {
+                showRoomCards(roomResults)
+            }
+
+        }
+    )
 })
+
+/**
+ * showing room cards after click
+ */
+function showRoomCards(roomResults) {
+    setTimeout(function () {
+        roomResults.style.height = "auto"
+        roomResults.style.opacity = "1"
+        roomResults.style.marginTop = "0"
+        roomResults.style.transition = ".8s"
+    }, 500)
+}
