@@ -50,6 +50,9 @@ class RoomTypeControllerTest extends TestCase
         $roomTypeController = new \App\Classes\Controllers\RoomTypeController($roomInfoGenerator, $roomImageGenerator, $logger);
         $output = $roomTypeController->getRoomTypes();
 
+
+        $this->assertEquals($output['success'], true);
+
         $this->assertTrue(is_array($output['data']));
 
         foreach ($output['data'] as $roomType) {
@@ -66,47 +69,19 @@ class RoomTypeControllerTest extends TestCase
         }
     }
 
-//    public function testGetRoomTypesFailure()
-//    {
-//        $roomInfoEntity = $this->createMock(App\Classes\Entities\RoomInfoEntity::class);
-//        $roomInfoEntity->id = 2;
-//        $roomInfoEntity->name = 'Bob';
-//        $roomInfoEntity->pricePerNight = 12;
-//        $roomInfoEntity->numberOfAdults = 13;
-//        $roomInfoEntity->hasCot = 1;
-//        $roomInfoEntity->minStay = 14;
-//        $roomInfoEntity->numberInHotel = 15;
-//        $roomInfoEntity->description = 'bla';
-//
-//        $roomInfoArray = [$roomInfoEntity, $roomInfoEntity];
-//
-//        $roomInfoGenerator = $this->createMock(App\Classes\Models\RoomInfoGenerator::class);
-////        $roomInfoGenerator->method('getRoomsInfo')->willReturn([null]);
-//
-//        $roomImageEntity = $this->createMock(App\Classes\Entities\RoomImageEntity::class);
-//        $roomImageEntity->imgName = '5.jpg';
-//
-//        $imagesArray = [$roomImageEntity, $roomImageEntity];
-//
-//        $roomImageGenerator = $this->createMock(App\Classes\Models\RoomImageGenerator::class);
-////        $roomImageGenerator->method('getImagesForRoomType')->willReturn([null]);
-//
-//
-//        $logger = $this->createMock(\Monolog\Logger::class);
-//        $roomType = new \App\Classes\Controllers\RoomTypeController($roomInfoGenerator, $roomImageGenerator, $logger);
-//        $output = $roomType->getRoomTypes();
-//
-//        foreach ($output as $roomtype) {
-//            $this->assertTrue(true, array_key_exists('id', $output));
-//            $this->assertTrue(true, array_key_exists('name', $output));
-//            $this->assertTrue(true, array_key_exists('pricePerNight', $output));
-//            $this->assertTrue(true, array_key_exists('numberOfAdults', $output));
-//            $this->assertTrue(true, array_key_exists('hasCot', $output));
-//            $this->assertTrue(true, array_key_exists('minStay', $output));
-//            $this->assertTrue(true, array_key_exists('numberInHotel', $output));
-//            $this->assertTrue(true, array_key_exists('description', $output));
-//            $this->assertTrue(true, array_key_exists('imgName', $output));
-//        }
-//    }
+    public function testGetRoomTypesFailure()
+    {
+        $roomInfoGenerator = $this->createMock(App\Classes\Models\RoomInfoGenerator::class);
+        $roomInfoGenerator->method('getRoomsInfo')->willThrowException(new Exception());
+
+        $roomImageGenerator = $this->createMock(App\Classes\Models\RoomImageGenerator::class);
+        $roomImageGenerator->method('getImagesForRoomType')->willReturn([]);
+
+        $logger = $this->createMock(\Monolog\Logger::class);
+        $roomType = new \App\Classes\Controllers\RoomTypeController($roomInfoGenerator, $roomImageGenerator, $logger);
+        $output = $roomType->getRoomTypes();
+
+        $this->assertEquals($output['success'], false);
+    }
 
 }
