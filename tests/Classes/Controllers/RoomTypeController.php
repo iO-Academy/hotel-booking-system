@@ -52,18 +52,17 @@ class RoomTypeControllerTest extends TestCase
 
         $this->assertTrue(is_array($output['data']));
 
-        var_dump($output['data']);
         foreach ($output['data'] as $roomType) {
-            $this->assertEquals($roomType['id'], $id);
-            $this->assertEquals($roomType['name'], $name);
-            $this->assertEquals($roomType['pricePerNight'], $pricePerNight);
-            $this->assertEquals($roomType['numberOfAdults'], $numberOfAdults);
-            $this->assertEquals($roomType['hasCot'], $hasCot);
-            $this->assertEquals($roomType['minStay'], $minStay);
-            $this->assertEquals($roomType['numberInHotel'], $numberInHotel);
-            $this->assertEquals($roomType['description'], $description);
-            $this->assertTrue(is_array($roomType['imgNames']));
-            $this->assertEquals($roomType['imgNames'], $imagesArray);
+            $this->assertEquals($roomType->id, $id);
+            $this->assertEquals($roomType->name, $name);
+            $this->assertEquals($roomType->hasCot, $hasCot);
+            $this->assertEquals($roomType->minStay, $minStay);
+            $this->assertEquals($roomType->numberInHotel, $numberInHotel);
+            $this->assertEquals($roomType->description, $description);
+            $this->assertTrue(is_array($roomType->imgNames));
+            $this->assertEquals($roomType->imgNames, $imagesArray);
+            $this->assertEquals($roomType->pricePerNight, $pricePerNight);
+            $this->assertEquals($roomType->numberOfAdults, $numberOfAdults);
         }
     }
 
