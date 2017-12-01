@@ -21,3 +21,12 @@ $app->get('/rooms', function (Request $request, Response $response, array $args)
     $response = $response->withAddedHeader('Access-Control-Allow-Origin', '*');
     return $response->withJson($data, 200);
 });
+
+$app->get('/?check-in={startDate}&check-out={endDate}', function (Request $request, Response $response, array $args) {
+    $this->logger->info("Getting room availability for dates");
+
+    $roomTypeController = $this->roomTypeController;
+    $data = $roomTypeController->getAvailability();
+    $response = $response->withAddedHeader('Access-Control-Allow-Origin', '*');
+    return $response->withJson($data, 200);
+});
