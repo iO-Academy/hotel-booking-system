@@ -4,7 +4,7 @@
 function fillRoomTable(HBTemplate) {
     var template = Handlebars.compile(HBTemplate)
 
-    Handlebars.registerHelper('if', function (v1, v2, options) {
+    Handlebars.registerHelper('if', function(v1, v2, options) {
         if (v1 === v2) {
             return options.fn(this)
         }
@@ -12,14 +12,14 @@ function fillRoomTable(HBTemplate) {
     })
 
     fetch("/rooms")
-        .then(function (result) {
+        .then(function(result) {
             return result.json()
         })
-        .then(function (result) {
+        .then(function(result) {
             var room_list = document.querySelector(".rooms_types")
 
             if (result.success) {
-                result.data.forEach(function (roomData) {
+                result.data.forEach(function(roomData) {
                     var html = template(roomData)
                     room_list.innerHTML += html
                 })
@@ -36,7 +36,7 @@ function fillRoomTable(HBTemplate) {
  * get the handlebars template and use this to display the room types
  */
 function updateRoomTable() {
-    getTemplateAjax('js/templates/room_types.hbs').then(function (HBTemplate) {
+    getTemplateAjax('js/templates/room_types.hbs').then(function(HBTemplate) {
         fillRoomTable(HBTemplate)
     })
 }
@@ -47,7 +47,7 @@ function updateRoomTable() {
 function carousel() {
     var img_section = document.querySelectorAll(".room_img")
 
-    img_section.forEach(function (section_item) {
+    img_section.forEach(function(section_item) {
         change_img(section_item)
     })
 }
@@ -71,7 +71,7 @@ function change_img(section_item) {
             each_img[img_number].removeAttribute("class")
         }
 
-        each_img.forEach(function (item) {
+        each_img.forEach(function(item) {
             $(item).removeClass("active")
         })
         each_img[img_number].setAttribute("class", "active")
