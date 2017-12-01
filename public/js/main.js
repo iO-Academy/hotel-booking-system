@@ -65,13 +65,18 @@ function change_img(section_item) {
      */
     function selected_img() {
         clearTimeout(timer)
+
         if (!each_img[img_number]) {
             img_number = 0
+            each_img[img_number].removeAttribute("class")
         }
-        each_img[img_number].setAttribute("id", "active")
 
+        each_img.forEach(function (item) {
+            $(item).removeClass("active")
+        })
+        each_img[img_number].setAttribute("class", "active")
         img_number++
-        $(each_img[img_number]).removeAttr("id")
+        
         timer = setTimeout(selected_img, 3000)
     }
     selected_img()
