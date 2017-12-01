@@ -17,6 +17,10 @@ function fillResultsTable(HBTemplate) {
         })
         .then(function (result) {
             var result_list = document.querySelector(".rooms_results")
+            
+            if (!result.data.length) {
+                result_list.innerHTML = "<h1>No rooms available</h1>"
+            }
 
             if (result.success) {
                 result.data.forEach(function (roomData) {
@@ -36,6 +40,7 @@ function fillResultsTable(HBTemplate) {
 /**
  * get the handlebars template and use this to display the room types
  */
+
 async function updateResultsTable() {
     getTemplateAjax('js/templates/results.hbs').then(function (HBTemplate) {
         fillResultsTable(HBTemplate)

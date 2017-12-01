@@ -109,7 +109,7 @@ document.querySelector(".date_submit").addEventListener("click", function (e) {
             opacity: "0",
             marginTop: "100vh"
         }, 500, function () {
-            document.querySelectorAll('.room_type').forEach(function (a) {
+            document.querySelectorAll('.room_type, .room_results h1').forEach(function (a) {
                 a.remove()
             })
             updateRoomsResult(roomResults)
@@ -167,4 +167,12 @@ function checkForm() {
     document.querySelector(".error p").innerHTML = "Wrong date format"
     error()
     return
+}
+
+
+function checkData() {
+    document.querySelector(".error p").innerHTML = "No Rooms"
+    error()
+    return
+
 }
