@@ -68,7 +68,6 @@ function change_img(section_item) {
 
         if (!each_img[img_number]) {
             img_number = 0
-            each_img[img_number].removeAttribute("class")
         }
 
         each_img.forEach(function(item) {
