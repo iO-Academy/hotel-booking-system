@@ -4,8 +4,8 @@
 function fillRoomTable(HBTemplate) {
     var template = Handlebars.compile(HBTemplate)
 
-    Handlebars.registerHelper('if', function(v1, v2, options) {
-        if(v1 === v2) {
+    Handlebars.registerHelper('if', function (v1, v2, options) {
+        if (v1 === v2) {
             return options.fn(this)
         }
         return options.inverse(this)
@@ -76,9 +76,10 @@ function change_img(section_item) {
         })
         each_img[img_number].setAttribute("class", "active")
         img_number++
-        
+
         timer = setTimeout(selected_img, 3000)
     }
+
     selected_img()
 }
 

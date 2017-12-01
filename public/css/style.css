@@ -58,18 +58,22 @@ body {
     color: #716769;
     line-height: 3rem;
 }
+
 .room_description p {
     font-style: italic;
 }
+
 .room_img:hover .room_description {
     opacity: 1;
 }
+
 .room_img img {
     opacity: 0;
     transition: .7s;
     position: absolute;
     width: 100%;
 }
+
 .room_img .active {
     opacity: 1;
 }
