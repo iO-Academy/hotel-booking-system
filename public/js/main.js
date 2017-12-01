@@ -27,7 +27,7 @@ function fillRoomTable(HBTemplate) {
         return options.inverse(this)
     })
 
-    fetch("/js/example.json")
+    fetch("/rooms")
         .then(function (result) {
             return result.json()
         })
