@@ -2,6 +2,8 @@ $app->get("/rooms")
 
 GET
 
+No request data return json object of all 3 types of rooms
+
 No request data
 return json object of all 3 types of rooms 
 

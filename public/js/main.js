@@ -1,4 +1,6 @@
-// Smooth scroll from search area to room types area
+/**
+ * Smooth scroll from search area to room types area
+ */
 $(document).ready(function () {
     $("#scroll_action").on('click', function (event) {
         if (this.hash !== "") {
@@ -7,55 +9,12 @@ $(document).ready(function () {
 
             $('html, body').animate({
                 scrollTop: $(hash).offset().top
-            }, 800, function () {
+            }, 1200, function () {
                 window.location.hash = hash
             })
         }
     })
 })
-
-/**
- * implement Handlebars into our layout
- */
-function fillRoomTable(HBTemplate) {
-    var template = Handlebars.compile(HBTemplate)
-
-    Handlebars.registerHelper('if', function(v1, v2, options) {
-        if(v1 === v2) {
-            return options.fn(this)
-        }
-        return options.inverse(this)
-    })
-
-    fetch("/rooms")
-        .then(function (result) {
-            return result.json()
-        })
-        .then(function (result) {
-            var room_list = document.querySelector(".rooms_types")
-
-            if (result.success) {
-                result.data.forEach(function (roomData) {
-                    var html = template(roomData)
-                    room_list.innerHTML += html
-                })
-            } else {
-                room_list.innerHTML += "Can't load the data from the server"
-            }
-        })
-        .then(function () {
-            carousel()
-        })
-}
-
-/**
- * get the handlebars template and use this to display the room types
- */
-function updateRoomTable() {
-    getTemplateAjax('js/templates/room_types.hbs').then(function (HBTemplate) {
-        fillRoomTable(HBTemplate)
-    })
-}
 
 /**
  * carousels of images for each room type
@@ -90,7 +49,130 @@ function change_img(section_item) {
         $(each_img[img_number]).removeAttr("id")
         timer = setTimeout(selected_img, 3000)
     }
+
     selected_img()
 }
 
-updateRoomTable()
+/**
+ * showing and hiding description slider
+ */
+function displayMoreInfo() {
+    var moreInfo = document.querySelectorAll(".more_info")
+    for (var i = 0; i < moreInfo.length; i++) {
+        moreInfo[i].setAttribute("id", i + 1)
+    }
+
+    moreInfo.forEach(function (item) {
+        item.addEventListener("click", function () {
+            var descriptionBox = this.parentNode.parentNode.querySelector(".description")
+            var close = descriptionBox.querySelector(".close_button")
+            
+            if (this.getAttribute("id") % 2) {
+                $(descriptionBox).css("right", "30%")
+            } else {
+                $(descriptionBox).css("right", "40%")
+            }
+
+            close.addEventListener("click", function () {
+                if (item.getAttribute("id") % 2) {
+                    $(descriptionBox).css("right", "0px")
+                } else {
+                    $(descriptionBox).css("right", "70%")
+                }
+            })
+        })
+    })
+}
+
+/**
+ * showing results page on submit event
+ */
+document.querySelector(".date_submit").addEventListener("click", function (e) {
+    e.preventDefault()
+    var roomResults = document.querySelector(".rooms_results")
+    var re = /^\d{1,2}\/\d{1,2}\/\d{4}$/
+
+    if(!document.getElementById("from").value.match(re) || !document.getElementById("to").value.match(re)) {
+        checkForm()
+        return
+    }
+
+    if (document.getElementById("from").value === document.getElementById("to").value) {
+        document.querySelector(".error p").innerHTML = "Minimum stay is 1 nights"
+        error()
+        return
+    }
+
+    if (roomResults.style.opacity == "1") {
+        $(".rooms_results").animate({
+            height: "0",
+            opacity: "0",
+            marginTop: "100vh"
+        }, 500, function () {
+            document.querySelectorAll('.room_type, .room_results h1').forEach(function (a) {
+                a.remove()
+            })
+            updateRoomsResult(roomResults)
+        });
+    } else {
+        updateRoomsResult(roomResults)
+    }
+})
+
+/**
+ * update result with new available rooms
+ */
+function updateRoomsResult(roomResults) {
+    updateResultsTable().then(
+        function () {
+            document.querySelector(".date_range_picker").style.top = "25%"
+            document.querySelector(".rooms_types").style.display = "none"
+            document.querySelector(".scroll").style.display = "none"
+            showRoomCards(roomResults)
+        }
+    )
+}
+
+/**
+ * showing room cards after click
+ */
+async function showRoomCards(roomResults) {
+    roomResults.style.height = "auto"
+    $(roomResults).animate({
+        opacity: "1",
+        marginTop: "0vh"
+    }, 1000)
+}
+
+/**
+ * show error message with animation
+ */
+function error() {
+    var error = document.querySelector(".error")
+    error.style.display = "block";
+    setTimeout(function () {
+        $(".error").animate({
+            opacity: "0"
+        }, 1000, function () {
+            error.style.display = "none";
+            error.style.opacity = "1";
+        });
+    }, 3000)
+}
+
+/**
+ * error notification for wrong date format
+ */
+function checkForm() {
+    document.querySelector(".error p").innerHTML = "Wrong date format"
+    error()
+    return
+}
+
+
+function checkData() {
+    document.querySelector(".error p").innerHTML = "No Rooms"
+    error()
+    return
+
+}

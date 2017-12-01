@@ -13,22 +13,29 @@
     <title>Home | Your place</title>
 </head>
 <body>
+<div class="error">
+    <div class="error_message">
+        <p>Minimum stay is 1 nights</p>
+    </div>
+</div>
 <div class="main">
     <div class="logo">
-        <a href="#">
+        <a href="/">
             <img src="./img/logo_4.png" alt="Awesome Badger logo">
         </a>
         <h1>Awesome badger bookings</h1>
     </div>
     <div class="date_range_picker">
-        <form action="#">
+        <form action="/" method="GET">
             <div class="form_content">
                 <input type="text" id="from" name="from" placeholder="From...">
                 <input type="text" id="to" name="to" placeholder="To...">
                 <input type="submit" class="date_submit" value="Search">
             </div>
         </form>
+        <div class="rooms_results"></div>
     </div>
+
     <div class="scroll">
         <p>take a look</p>
         <div class="scroll_arrow">
@@ -36,11 +43,14 @@
         </div>
     </div>
 </div>
-<div class="rooms_types" id="rooms">
-</div>
+<div class="rooms_types" id="rooms"></div>
 </body>
 <script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/datePicker.js"></script>
 <script src="js/handlebars-v4.0.11.js"></script>
 <script src="js/ajax_request.js"></script>
+<script src="js/roomHandlebars.js"></script>
+<script src="js/resultsHandlebars.js"></script>
 <script src="js/main.js" defer></script>
 </html>

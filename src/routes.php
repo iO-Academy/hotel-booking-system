@@ -6,6 +6,7 @@ use Slim\Http\Response;
 // Routes
 
 $app->get('/', function (Request $request, Response $response, array $args) {
+
     $this->logger->info("Request to display page");
 
     //Render index view
