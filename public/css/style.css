@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: #716769;
+}
+
+/*Rooms types*/
+.rooms_types {
+    padding: 70px 10%;
+}
+
+.room_card {
+    margin: 40px 0;
+}
+
+.room_card:nth-child(even) .room_details {
+    float: left;
+}
+
+.room_card:nth-child(even) .room_img {
+    float: right;
+}
+
+.room_type {
+    width: 100%;
+    height: 400px;
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+}
+
+.room_img {
+    display: inline-block;
+    position: relative;
+    float: left;
+    width: 70%;
+    height: 400px;
+    background-color: #dddddd;
+    overflow: hidden;
+}
+
+.room_description {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transition: .4s;
+    padding: 30px;
+    font-size: 2rem;
+    color: #716769;
+    line-height: 3rem;
+}
+
+.room_description p {
+    font-style: italic;
+}
+
+.room_img:hover .room_description {
+    opacity: 1;
+}
+
+.room_img img {
+    opacity: 0;
+    transition: .7s;
+    position: absolute;
+    width: 100%;
+}
+
+.room_img .active {
+    opacity: 1;
+}
+
+.room_details {
+    display: inline-block;
+    background-color: #ffffff;
+    width: 30%;
+    height: 400px;
+    padding: 20px 50px;
+    float: left;
+    text-align: center;
+}
+
+.room_details h3 {
+    color: #716769;
+    font-size: 3rem;
+}
+
+.person {
+    width: 20px;
+}
+
+.room_details h2 {
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+.room_details h2 span {
+    font-size: 10rem;
+}
+
+.room_details p {
+    font-style: italic;
+    font-size: 2rem;
+    color: #bdbdbd;
+}

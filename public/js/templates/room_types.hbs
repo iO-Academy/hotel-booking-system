@@ -1,0 +1,22 @@
+<div class="room_type room_card">
+    <div class="room_img">
+        {{#each imgNames}}
+            <img src="./img/rooms/{{imgName}}.jpg" alt="room photo">
+        {{/each}}
+        <div class="room_description">
+            <h2>Description</h2>
+            <p>{{description}}</p>
+        </div>
+    </div>
+    <div class="room_details">
+        <h3>{{name}}</h3>
+        <h2>£ <span class="room_price">{{pricePerNight}}</span></h2>
+        <h3 class="number_of_adults">
+            <img src="img/person.png" alt="person" class="person"> x {{numberOfAdults}}
+            {{#if hasCot "1"}}
+            <img src="img/baby.png" alt="baby" class="person">
+            {{/if}}
+        </h3>
+        <p>Minimum stay: <span class="min_stay">{{minStay}}</span> nights</p>
+    </div>
+</div>
